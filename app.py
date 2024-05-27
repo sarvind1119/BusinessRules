@@ -1,3 +1,6 @@
+#PLEASE check main.py file before going through this
+
+#Import necessary libraries
 from langchain.embeddings.openai import OpenAIEmbeddings
 import os
 from pinecone import ServerlessSpec
@@ -17,7 +20,7 @@ region = 'us-east-1'
 
 spec = ServerlessSpec(cloud=cloud, region=region)
 
-index_name = 'business'
+index_name = 'renewable1'
 
 # get openai api key from platform.openai.com
 OPENAI_API_KEY =  os.environ.get('OPENAI_API_KEY')
@@ -26,7 +29,8 @@ model_name = 'text-embedding-ada-002'
 
 embed = OpenAIEmbeddings(
     model=model_name,
-    openai_api_key=OPENAI_API_KEY
+    openai_api_key=OPENAI_API_KEY,
+    
 )
 
 from langchain.vectorstores import Pinecone
@@ -47,7 +51,7 @@ def ask_and_get_answer(vector_store, q, k=3):
     from langchain_openai import ChatOpenAI
 
     # Initialize the language model with the specified parameters.
-    llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0)
+    llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=0 )
 
     # Set up the retriever with the given vector store and search parameters.
     retriever = vector_store.as_retriever(search_type='similarity', search_kwargs={'k': k})
@@ -87,42 +91,36 @@ qa_with_sources = RetrievalQAWithSourcesChain.from_chain_type(
     chain_type="stuff",
     retriever=vectorstore.as_retriever()
 )
-query="Give the key points of TwelfthFiveYearPlan2012-17"
-#qa_with_sources(query)
+import streamlit as st
 
 # Sidebar contents
 with st.sidebar:
-    st.title('💬 LLM Chat App on Ministry of New and Renewable Energy (Documents)...')
+    st.title('💬 LLM Chat App on Allocation & Transaction of Business Rules(Documents)...')
     st.markdown('''
     ## About
-    This GPT helps in answering questions related to document of Ministry of Tribal Affairs
-
-
+    This GPT helps in answering questions related toAllocation & Transaction of Business Rules(using the following Documents)
 
     [Documents Repository](https://drive.google.com/drive/folders/1lC40pdVKJJXFYIy3QNgYOTlk8yo6AEoY?usp=sharing)
- 
     ''')
-    #add_vertical_space(5)
-    st.write('Made by LBSNAA for learning purpose](https://www.lbsnaa.gov.in/)')
+    
+    # Adding the new list with green bullet points
+    st.markdown('''
+    <div style="color: green;">
+    <ul>
+        <li>Allocation of Business Rules(1961).pdf</li>
+        <li>TRANSACTION OF BUSINESS RULES(1961).pdf</li>
+    </ul>
+    </div>
+    ''', unsafe_allow_html=True)
 
-# def main():
-#     #st.title("Question and Answering App powered by LLM and Pinecone")
+    # Add vertical space
+    st.markdown('''
+    ---
 
-#     text_input = st.text_input("Ask your query...") 
-#     if st.button("Ask Query"):
-#         if len(text_input)>0:
-#             #st.info("Your Query: " + text_input)
-#             #answer = qa_with_sources(text_input)
-#             #st.success(answer)
-#             answer = ask_and_get_answer(vectorstore,text_input)
-#             st.success(answer)
-#             #st.success(answer['result'])
-#             #st.success(answer['Reference:\n'])
+    **In case of suggestions/feedback/Contributions please reach out to:**
+    [NIC Training Unit @ nictu@lbsnaa.gov.in]
+    ''')
 
-# if __name__ == "__main__":
-#     main()
-#import streamlit as st
-#from your_module import ask_and_get_answer, vectorstore  # Assuming 'vectorstore' is initialized in 'your_module.py'
 
 def display_answer(answer):
     st.write("### Query")
