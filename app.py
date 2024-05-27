@@ -107,8 +107,8 @@ with st.sidebar:
     st.markdown('''
     <div style="color: green;">
     <ul>
-        <li>Allocation of Business Rules(1961).pdf</li>
-        <li>TRANSACTION OF BUSINESS RULES(1961).pdf</li>
+        <li>Allocation of Business Rules(1961).pdf(1_Upload_1187)</li>
+        <li>TRANSACTION OF BUSINESS RULES(1961).pdf(1_Upload_3836)</li>
     </ul>
     </div>
     ''', unsafe_allow_html=True)
