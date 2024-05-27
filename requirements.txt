@@ -1,0 +1,17 @@
+unstructured
+tiktoken
+pinecone-client
+pypdf
+openai
+langchain
+pandas 
+numpy
+python-dotenv
+sentence_transformers
+streamlit
+langchain_pinecone
+langchain-community
+langchain_text_splitters
+langchain_openai
+poppler-utils
+#detectron2@git+https://github.com/facebookresearch/detectron2.git@v0.6#egg=detectron2 -q
