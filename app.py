@@ -98,7 +98,7 @@ with st.sidebar:
     st.title('💬 LLM Chat App on Allocation & Transaction of Business Rules(Documents)...')
     st.markdown('''
     ## About
-    This GPT helps in answering questions related toAllocation & Transaction of Business Rules(using the following Documents)
+    This GPT helps in answering questions related to Allocation & Transaction of Business Rules(using the following Documents)
 
     [Documents Repository](https://drive.google.com/drive/u/0/folders/1CXssySGbTVevlQLQG6VnF_FUO4UNJkDx)
     ''')
@@ -140,7 +140,7 @@ def display_answer(answer):
             st.markdown(content)
 
 def main():
-    st.title("Question and Answering App powered by LLM and Pinecone on Ministry of New and Renewable Energy (Documents)...")
+    st.title("Question and Answering App powered by LLM and Pinecone on Allocation & Transaction of Business Rules...")
     text_input = st.text_input("Ask your query...") 
 
     if st.button("Ask Query"):
