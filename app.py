@@ -100,7 +100,7 @@ with st.sidebar:
     ## About
     This GPT helps in answering questions related toAllocation & Transaction of Business Rules(using the following Documents)
 
-    [Documents Repository](https://drive.google.com/drive/folders/1lC40pdVKJJXFYIy3QNgYOTlk8yo6AEoY?usp=sharing)
+    [Documents Repository](https://drive.google.com/drive/u/0/folders/1CXssySGbTVevlQLQG6VnF_FUO4UNJkDx)
     ''')
     
     # Adding the new list with green bullet points
